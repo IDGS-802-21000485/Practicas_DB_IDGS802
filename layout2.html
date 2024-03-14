@@ -1,71 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/bootstrap 2/css/bootstrap.min.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-grid.min.css">
+
+
     <style>
-        body{
+        body {
             padding-top: 60px;
         }
-        .tr-head{
+
+        .tr-head {
             background: #dff0d8;
         }
+
+        .hidden {
+            display: none;
+        }
+
+        .centered-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            /* Cambiado a column */
+            width: 300px;
+            /* Ajusta el ancho según sea necesario */
+            margin-bottom: 10px;
+            /* Espacio entre las filas */
+        }
+
+        .form-row2 {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            /* Ajusta el ancho según sea necesario */
+            margin-bottom: 10px;
+            /* Espacio entre las filas */
+        }
+
+        .form-row input,
+        .form-row select {
+            margin-bottom: 5px;
+            /* Espacio entre los elementos */
+        }
+
+        .form-row2 input[type="text"],
+        .form-row2 select {
+            margin-bottom: 5px;
+            /* Espacio entre los elementos */
+            width: 60px;
+            /* Ancho específico para los campos de entrada */
+        }
     </style>
-    <link rel="stylesheet" href="../static/bootstrap 2/css/bootstrap-responsive.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="">
+                <a class="brand">
                     IDGS802
                 </a>
-
                 <ul class="nav">
                     <li class="active">
-                        <a class="" href="/">
-                            <i class="icon-home icon-white">
-                                
-                            </i>
+                        <a href="">
+                            <i class="icon-home icon-white"></i>
                             Inicio
+
                         </a>
-                    </li>
-                    <li class="">
-                        <a class="" href="/index">
-                            <i class="icon-user icon-white">
-                               
-                            </i>
-                            Registro
-                        </a>
+
                     </li>
                     <li class="">
                         <a class="" href="/ABC_profesores">
                             <i class="icon-user icon-white">
-                                
+
                             </i>
                             Maestros
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="" href="/pizza">
+                            Pizzas
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="container">
-            {%with messages = get_flashed_messages()%}
-            {%if messages %}
-            {%for messages in messages%}
-            <div class="alert alert-success">
-                {{messages}}
-            </div>
-            {%endfor%}
-            {%endif%}
-            {%endwith%}
-            {% block content %}
-
-            {% endblock %}
-        </div>
     </div>
+
+    <div class="container">
+        {%with message =get_flashed_messages()%}
+        {%if messages%}
+        {%for message in messages%}
+        <div class="alert alert-success">
+            {{message}}
+        </div>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
+        {%block content%}
+
+        {%endblock%}
+    </div>
+
 </body>
+
 </html>
